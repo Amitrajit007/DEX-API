@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>pokédex</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="/src/style.css" rel="stylesheet" />
+  </head>
+  <body
+    class="min-h-screen bg-gradient-to-b from-blue-400 via-indigo-500 to-purple-600"
+  >
+    <!-- nav bar here -->
+    <nav class="bg-blue-400 text-shadow-black px-6 py-4 flex gap-10">
+      <div class="text-xl font-bold">Pokédex</div>
+      <div class="flex flex-1 justify-end">
+        <ul class="flex space-x-6">
+          <li>
+            <a href="#" class="text-shadow-black hover:text-gray-300">Home</a>
+          </li>
+          <li>
+            <a href="#" class="text-shadow-black hover:text-gray-300">About</a>
+          </li>
+          <li>
+            <a href="#" class="text-shadow-black hover:text-gray-300"
+              >Services</a
+            >
+          </li>
+          <li>
+            <a href="#" class="text-shadow-black hover:text-gray-300"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- center display here -->
+    <div class="w-screen h-80 flex flex-col gap-2 justify-center items-center">
+      <h2 class="text-6xl font-bold">Pokédex</h2>
+      <h5 class="tracking-widest text-monospase">
+        Explore Pokémon by their names....
+      </h5>
+    </div>
+    <!-- the main portion -->
+    <main class="flex flex-wrap gap-3 mt-5 justify-evenly mb-80">
+      <!-- input and submit -->
+      <div class="w-screen flex flex-wrap justify-evenly p-4">
+        <input
+          type="text"
+          placeholder="Enter a pokemon name Ez : Charizard"
+          class="ml-5 w-2xl border-4 rounded-2xl border-blue-900 text-2xl px-4 py-3 leading-[1.5]"
+        />
+
+        <button
+          type="submit"
+          class="relative z-10 flex items-center justify-center gap-2 px-4 py-2 mx-auto text-lg bg-gray-50 border-2 border-gray-50 rounded-full shadow-xl overflow-hidden backdrop-blur-md group active:scale-95"
+        >
+          Explore
+
+          <!-- Hover background animation using ::before -->
+          <span
+            class="absolute inset-0 -z-10 rounded-full before:absolute before:left-[-100%] before:top-0 before:w-full before:h-full before:bg-emerald-500 before:transition-all before:duration-700 before:hover:left-0"
+          ></span>
+
+          <svg
+            class="w-8 h-8 p-2 rotate-45 transition-all duration-300 ease-linear rounded-full border border-gray-700 group-hover:rotate-90 group-hover:bg-gray-50 group-hover:border-none"
+            viewBox="0 0 16 19"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+              class="fill-gray-800 group-hover:fill-gray-800"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <!-- display area -->
+      <!-- TODO: will think about it tommorow -->
+      <div class="displayArea">Exp.</div>
+    </main>
+    <!-- footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Brand Section -->
+        <div>
+          <h2 class="text-2xl font-bold mb-2">MyWebsite</h2>
+          <p class="text-sm text-gray-400 mb-4">
+            Bringing you the best of the web, one click at a time.
+          </p>
+          <p class="text-sm text-gray-500">© 2025 All rights reserved.</p>
+          <p class="text-sm text-gray-500">Caution : Dummy only</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Quick Links</h3>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#" class="hover:text-white">Home</a></li>
+            <li><a href="#" class="hover:text-white">About Us</a></li>
+            <li><a href="#" class="hover:text-white">Blog</a></li>
+            <li><a href="#" class="hover:text-white">Careers</a></li>
+          </ul>
+        </div>
+
+        <!-- Support -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Support</h3>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#" class="hover:text-white">Contact</a></li>
+            <li><a href="#" class="hover:text-white">Help Center</a></li>
+            <li><a href="#" class="hover:text-white">Terms of Service</a></li>
+            <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Socials -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Follow Us</h3>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#" class="hover:text-white">Facebook</a></li>
+            <li><a href="#" class="hover:text-white">Twitter</a></li>
+            <li><a href="#" class="hover:text-white">Instagram</a></li>
+            <li><a href="#" class="hover:text-white">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
