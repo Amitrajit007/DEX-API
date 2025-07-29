@@ -46,7 +46,7 @@
       </h5>
     </div>
     <!-- the main portion -->
-    <main class="flex flex-grow flex-wrap gap-3 mt-5 justify-evenly mb-80">
+    <main class="flex flex-grow flex-wrap gap-3 mt-5 justify-evenly mb-10">
       <!-- input and submit -->
       <div class="w-screen flex flex-wrap justify-evenly p-4">
         <input
@@ -79,17 +79,57 @@
         </button>
       </div>
       <!-- display area -->
-      <!-- TODO: will think about it tommorow -->
-      <div class="displayArea">Exp.</div>
+
+      <div
+        class="mainDisplayArea flex flex-wrap justify-evenly items-center gap-8 text-white"
+      >
+        <div class="forImage">
+          <figure class="flex flex-col items-center gap-2">
+            <img
+              src="./src/public/images/OIP.webp"
+              alt="Demopic"
+              class="w-full h-auto"
+            />
+            <figcaption class="font-bold">Charizard</figcaption>
+          </figure>
+        </div>
+
+        <ul
+          class="otherContent list-disc flex flex-col gap-5 text-xl flex-wrap"
+        >
+          <li>
+            Charizard is a highly recognizable and popular Pokémon described as
+            an orange,
+          </li>
+          <li class="Type flex gap-2">
+            <span>Type: </span>
+            <pre
+              class="bg-orange-500 rounded-2xl px-5 w-fit flex items-center content-center"
+            >
+Fire </pre
+            >
+            <p class="">&</p>
+            <pre
+              class="text-black bg-white rounded-2xl px-5 w-fit flex items-center content-center"
+            >
+ Flying</pre
+            >
+          </li>
+          <li class="Abilities">
+            Blaze (powers up Fire-type moves when HP is low)
+          </li>
+          <li class="Weight">90.5 kg</li>
+        </ul>
+      </div>
     </main>
     <!-- footer -->
     <footer class="w-screen bg-gray-900 text-white py-12">
       <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
         <!-- Brand Section -->
         <div>
-          <h2 class="text-2xl font-bold mb-2">MyWebsite</h2>
+          <h2 class="text-2xl font-bold mb-2">Pokédex</h2>
           <p class="text-sm text-gray-400 mb-4">
-            Bringing you the best of the web, one click at a time.
+            Handheld electronic device in the Pokémon franchise.
           </p>
           <p class="text-sm text-gray-500">© 2025 All rights reserved.</p>
           <p class="text-sm text-gray-500">Caution : Dummy only</p>
