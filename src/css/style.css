@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+.suggestions {
+  background: #696de1;
+  color: #efe8e8;
+  padding: 0.4rem;
+  margin-left: 1.25;
+  border: #333 solid 1px;
+  border-radius: 5px;
+}

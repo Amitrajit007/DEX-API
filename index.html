@@ -46,14 +46,19 @@
       </h5>
     </div>
     <!-- the main portion -->
-    <main class="flex flex-grow flex-wrap gap-3 mt-5 justify-evenly mb-10">
+    <main class="flex flex-grow flex-wrap gap-3 mt-5 justify-center mb-10">
       <!-- input and submit -->
-      <div class="w-screen flex flex-wrap justify-evenly p-4">
-        <input
-          type="text"
-          placeholder="Enter a pokemon name Ez : Charizard"
-          class="js_inputArea ml-5 w-2xl border-4 rounded-2xl border-blue-900 text-2xl px-4 py-3 leading-[1.5]"
-        />
+      <div class="w-screen flex flex-wrap justify-evenly items-center">
+        <div
+          class="js_inputContainer flex flex-col flex-grow max-w-[800px] w-full px-4 content-center"
+        >
+          <input
+            type="text"
+            placeholder="Enter a pokemon name Ez : Charizard"
+            class="js_inputArea ml-5 border-4 w-full rounded-2xl border-blue-900 text-2xl px-4 py-3 leading-[1.5]"
+          />
+          <div class="js_suggest ml-5"></div>
+        </div>
 
         <button
           type="submit"
@@ -88,7 +93,7 @@
             <img
               src="./src/public/images/OIP.webp"
               alt="Demopic"
-              class="js_image w-full h-auto rounded-xl"
+              class="js_image w-3xl h-auto"
             />
             <figcaption class="font-bold">Charizard</figcaption>
           </figure>
@@ -136,6 +141,7 @@ Fire </pre
           </p>
           <p class="text-sm text-gray-500">© 2025 All rights reserved.</p>
           <p class="text-sm text-gray-500">Caution : Dummy only</p>
+          <p class="text-sm text-gray-500">Created by Amitrajit</p>
         </div>
 
         <!-- Quick Links -->

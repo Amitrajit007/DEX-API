@@ -1,5 +1,5 @@
 export async function fetchImageData(name) {
-  const url = " https://pokeapi.co/api/v2/pokemon/charizard";
+  const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
   try {
     const response = await fetch(url);
     if (!response.ok) {
@@ -24,7 +24,6 @@ export async function fetchInfoData(name) {
     let flag = 0;
     info.forEach((element) => {
       if (element.language.name === "en") {
-        flag++;
         console.log(element.flavor_text);
       }
     });
