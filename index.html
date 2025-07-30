@@ -12,7 +12,7 @@
     <link href="/src/css/style.css" rel="stylesheet" />
   </head>
   <body
-    class="flex flex-col min-h-screen bg-gradient-to-b from-blue-400 via-indigo-500 to-purple-600"
+    class="flex flex-col w-screen min-h-screen bg-gradient-to-b from-blue-400 via-indigo-500 to-purple-600"
   >
     <!-- nav bar here -->
     <nav class="bg-blue-400 text-shadow-black px-6 py-4 flex gap-10">
@@ -52,12 +52,12 @@
         <input
           type="text"
           placeholder="Enter a pokemon name Ez : Charizard"
-          class="ml-5 w-2xl border-4 rounded-2xl border-blue-900 text-2xl px-4 py-3 leading-[1.5]"
+          class="js_inputArea ml-5 w-2xl border-4 rounded-2xl border-blue-900 text-2xl px-4 py-3 leading-[1.5]"
         />
 
         <button
           type="submit"
-          class="relative z-10 flex items-center justify-center gap-2 px-4 py-2 mx-auto text-lg bg-gray-50 border-2 border-gray-50 rounded-full shadow-xl overflow-hidden backdrop-blur-md group active:scale-95"
+          class="js_submitBtn relative z-10 flex items-center justify-center gap-2 px-4 py-2 mx-auto text-lg bg-gray-50 border-2 border-gray-50 rounded-full shadow-xl overflow-hidden backdrop-blur-md group active:scale-95"
         >
           Explore
 
@@ -81,14 +81,14 @@
       <!-- display area -->
 
       <div
-        class="mainDisplayArea flex flex-wrap justify-evenly items-center gap-8 text-white"
+        class="mainDisplayArea flex flex-col sm:flex-row justify-evenly items-center gap-8 text-black bg-amber-50/30 mx-5 rounded-4xl p-5"
       >
         <div class="forImage">
           <figure class="flex flex-col items-center gap-2">
             <img
               src="./src/public/images/OIP.webp"
               alt="Demopic"
-              class="w-full h-auto"
+              class="js_image w-full h-auto rounded-xl"
             />
             <figcaption class="font-bold">Charizard</figcaption>
           </figure>
@@ -97,9 +97,12 @@
         <ul
           class="otherContent list-disc flex flex-col gap-5 text-xl flex-wrap"
         >
-          <li>
+          <li class="flex">
             Charizard is a highly recognizable and popular Pokémon described as
-            an orange,
+            an orange,Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Distinctio consectetur, eveniet modi nobis harum nesciunt suscipit
+            corrupti! Reprehenderit, natus! Velit cumque fuga repudiandae
+            explicabo est earum, beatae et incidunt deserunt?
           </li>
           <li class="Type flex gap-2">
             <span>Type: </span>
@@ -123,7 +126,7 @@ Fire </pre
       </div>
     </main>
     <!-- footer -->
-    <footer class="w-screen bg-gray-900 text-white py-12">
+    <footer class="w-full bg-gray-900 text-white py-12">
       <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
         <!-- Brand Section -->
         <div>
@@ -169,6 +172,6 @@ Fire </pre
         </div>
       </div>
     </footer>
-    <script src="./src/js/script.js"></script>
+    <script type="module" src="./src/js/main.js"></script>
   </body>
 </html>

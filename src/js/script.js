@@ -1,4 +1,4 @@
-async function fetchData() {
+export async function fetchImageData(name) {
   const url = " https://pokeapi.co/api/v2/pokemon/charizard";
   try {
     const response = await fetch(url);
@@ -6,13 +6,32 @@ async function fetchData() {
       throw new Error(`Response status: ${response.status}`);
     }
     const data = await response.json();
-    console.log(data.weight);
+    return data.sprites.front_default;
   } catch (error) {
     console.warn(error.message || error);
   }
 }
 
-fetchData();
+export async function fetchInfoData(name) {
+  const url = "https://pokeapi.co/api/v2/pokemon-species/charizard";
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status = ${response.status}`);
+    }
+    const data = await response.json();
+    const info = data.flavor_text_entries;
+    let flag = 0;
+    info.forEach((element) => {
+      if (element.language.name === "en") {
+        flag++;
+        console.log(element.flavor_text);
+      }
+    });
+  } catch (error) {
+    console.error("something went wrong : ", error.message || error);
+  }
+}
 
 // ? console.log(data.sprites.front_default); is the photo horrible tho
 
@@ -62,3 +81,5 @@ async function fetchData() {
 
 // ? console.log(data.abilities[0].ability.name); for the main ability name may be can add the others as well...
 // ? console.log(data.weight); for the wight however it is giving 905 instead of 90.5 kg.
+
+// console.log("End flag");
