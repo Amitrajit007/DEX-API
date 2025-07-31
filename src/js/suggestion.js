@@ -1,4 +1,4 @@
-export function suggestionfunc(input, suggestion, pokemonList) {
+export function suggestionfunc(input, suggestion, pokemonList, submitBtn) {
   input.addEventListener("input", () => {
     const value = input.value.toLowerCase();
     suggestion.innerHTML = "";

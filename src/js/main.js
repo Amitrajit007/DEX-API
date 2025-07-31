@@ -23,7 +23,7 @@ async function updateImage(name) {
 // ! eventListeners
 // ?suggestions
 fetchList().then((pokemonList) => {
-  suggestionfunc(input, suggestion, pokemonList);
+  suggestionfunc(input, suggestion, pokemonList, submitBtn);
 });
 
 input.addEventListener("keydown", (e) => {
