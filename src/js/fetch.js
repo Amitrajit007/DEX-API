@@ -1,3 +1,5 @@
+// ! for the picture
+
 export async function fetchImageData(name) {
   const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
   try {
