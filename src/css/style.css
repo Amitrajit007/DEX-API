@@ -11,3 +11,18 @@
     background: #5f63c9;
   }
 }
+
+.translucent-btn {
+  background-color: rgba(255, 255, 255, 0.15); /* translucent white */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* soft border */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(4px); /* frosted glass effect */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.translucent-btn:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}

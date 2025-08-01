@@ -1,21 +1,27 @@
 // ! for the picture
 
-export async function fetchImageData(name) {
-  const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
+export async function fetchImageData(key) {
+  const url = `https://pokeapi.co/api/v2/pokemon/${key}`;
   try {
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`Response status: ${response.status}`);
     }
     const data = await response.json();
-    return data.sprites.front_default;
+
+    // return data.sprites.front_default;
+    return {
+      image: data.sprites.front_default,
+      name: data.name,
+    };
   } catch (error) {
     console.warn(error.message || error);
   }
 }
 
+// ! for info
 export async function fetchInfoData(name) {
-  const url = "https://pokeapi.co/api/v2/pokemon-species/charizard";
+  const url = `https://pokeapi.co/api/v2/pokemon-species/${name}`;
   try {
     const response = await fetch(url);
     if (!response.ok) {
@@ -23,12 +29,21 @@ export async function fetchInfoData(name) {
     }
     const data = await response.json();
     const info = data.flavor_text_entries;
-    let flag = 0;
-    info.forEach((element) => {
-      if (element.language.name === "en") {
-        console.log(element.flavor_text);
-      }
-    });
+
+    // let f = 0;
+    // info.forEach((element) => {
+    //   if (f > 2) {
+    //     return;
+    //   }
+    //   if (element.language.name === "en") {
+    //     f++;
+    //     console.log(element.flavor_text);
+    //     return element.flavor_text;
+    //   }
+    // });
+    const INFO = info.filter((element) => element.language.name === "en");
+
+    return INFO;
   } catch (error) {
     console.error("something went wrong : ", error.message || error);
   }
