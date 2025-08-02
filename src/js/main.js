@@ -1,5 +1,5 @@
 // ! Imports
-import { fetchImageData, fetchInfoData } from "./fetch.js";
+import { fetchData, fetchInfoData } from "./fetch.js";
 import { fetchList } from "../data/pokemonList.js";
 import { suggestionfunc } from "./suggestion.js";
 // ! DOMS
@@ -9,6 +9,9 @@ const image = document.querySelector(".js_image");
 const nameDisplay = document.querySelector(".js_name");
 const suggestion = document.querySelector(".js_suggest");
 const generalInfo = document.querySelector(".js_generalInfo");
+// const typeofPokemon = document.querySelector("");
+const abilityofPokemon = document.querySelector(".Abilities");
+const weightofPokemon = document.querySelector(".Weight");
 const submitBtn = document.querySelector(".js_submitBtn");
 const readmore = document.querySelector(".js_readmoreBtn");
 
@@ -20,27 +23,30 @@ const readmore = document.querySelector(".js_readmoreBtn");
 
 // got the images
 async function updateImage(name) {
-  const imageSource = await fetchImageData(name);
+  const imageSource = await fetchData(name);
   image.src = imageSource.image;
 }
-// updateName()
+// updated the name
 
 async function updateName(key) {
-  const name1 = await fetchImageData(key);
+  const name1 = await fetchData(key);
   nameDisplay.innerText = name1.name;
 }
 //getting the info from the api
 
 async function getGeneralInfo(name) {
+  if (name.includes("deoxys")) {
+    name = "deoxys";
+  }
   const generalData = await fetchInfoData(name);
 
-  // console.log(generalData);
   generalInfo.innerText = generalData
     .map((e) => {
       const text = e.flavor_text.replace(/[\n\f]/g, " ");
       return `${text}`;
     })
     .join(" ");
+  console.log(generalData);
   generalInfo.innerText = generalData
     .slice(0, 3)
     .map((e) => e.flavor_text.replace(/[\n\f]/g, " "))
@@ -67,6 +73,20 @@ async function getGeneralInfo(name) {
   };
 }
 
+// special ability
+
+async function getSpecialAbilty(name) {
+  const ability = await fetchData(name);
+  abilityofPokemon.innerHTML = `<p ><span class= "font-bold"> Special Ability : </span> ${ability.ability}</p>`;
+}
+
+// updated the weight
+
+async function getWeight(name) {
+  const weight = await fetchData(name);
+  weightofPokemon.innerText = weight.weight + " kg";
+}
+
 // ! eventListeners
 // ?suggestions
 fetchList().then((pokemonList) => {
@@ -79,6 +99,8 @@ input.addEventListener("keydown", (e) => {
     updateImage(key);
     updateName(key);
     getGeneralInfo(key);
+    getSpecialAbilty(key);
+    getWeight(key);
   }
 });
 submitBtn.addEventListener("click", () => {
@@ -86,4 +108,6 @@ submitBtn.addEventListener("click", () => {
   updateImage(key);
   updateName(key);
   getGeneralInfo(key);
+  getSpecialAbilty(key);
+  getWeight(key);
 });

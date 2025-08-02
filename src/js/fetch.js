@@ -1,6 +1,6 @@
 // ! for the picture
 
-export async function fetchImageData(key) {
+export async function fetchData(key) {
   const url = `https://pokeapi.co/api/v2/pokemon/${key}`;
   try {
     const response = await fetch(url);
@@ -13,6 +13,8 @@ export async function fetchImageData(key) {
     return {
       image: data.sprites.front_default,
       name: data.name,
+      weight: data.weight / 10,
+      ability: data.abilities[0].ability.name,
     };
   } catch (error) {
     console.warn(error.message || error);

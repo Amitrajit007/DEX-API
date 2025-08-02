@@ -8,7 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-ignore.js
+
 
 dist
 dist-ssr
@@ -27,3 +27,5 @@ dist-ssr
 
 
 
+/src/js/ignore.js
+ignore.html
