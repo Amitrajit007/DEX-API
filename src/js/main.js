@@ -87,13 +87,36 @@ async function getType(name) {
   const type1 = rawtypeData.map((e) => e.type.name);
 
   let HTML = `<p class="font-bold">Type: </p>`;
-
+  const typeColors = {
+    normal: "#d1d5db", // gray-300
+    fire: "#f87171", // red-400
+    water: "#60a5fa", // blue-400
+    grass: "#22c55e", // green-500
+    electric: "#facc15", // yellow-400
+    ice: "#67e8f9", // cyan-300
+    fighting: "#b91c1c", // red-700
+    poison: "#a855f7", // purple-500
+    ground: "#d97706", // amber-600
+    flying: "#f3f4f6", // gray-100
+    psychic: "#f472b6", // pink-400
+    bug: "#84cc16", // lime-500
+    rock: "#facc15", // yellow-700
+    ghost: "#9333ea", // purple-600
+    dragon: "#4f46e5", // indigo-600
+    dark: "#1f2937", // gray-800
+    steel: "#9ca3af", // gray-400
+    fairy: "#f9a8d4", // pink-300
+  };
   type1.forEach((element, index) => {
     if (index != 0) {
       HTML += `<p>&<p>`;
     }
-    HTML += `<p>${element}</p>`;
+
+    const colortoken = typeColors[element] || "gray";
+    const fontColor = colortoken === "#f3f4f6" ? "black" : "white";
+    HTML += `<p class="py-1 px-3 rounded-xl text-${fontColor} capitalize" style="background-color: ${colortoken}">${element}</p>`;
   });
+  HTML += "</div>";
   typeofPokemon.innerHTML = HTML;
 }
 
@@ -108,7 +131,7 @@ async function getSpecialAbilty(name) {
 
 async function getWeight(name) {
   const weight = await fetchData(name);
-  weightofPokemon.innerText = weight.weight + " kg";
+  weightofPokemon.innerHTML = `<p class="font-normal"><span class="font-bold">Weight: </span>${weight.weight} kg </p>`;
 }
 
 // ! eventListeners
