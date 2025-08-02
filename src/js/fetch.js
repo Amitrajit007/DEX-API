@@ -32,25 +32,31 @@ export async function fetchInfoData(name) {
     const data = await response.json();
     const info = data.flavor_text_entries;
 
-    // let f = 0;
-    // info.forEach((element) => {
-    //   if (f > 2) {
-    //     return;
-    //   }
-    //   if (element.language.name === "en") {
-    //     f++;
-    //     console.log(element.flavor_text);
-    //     return element.flavor_text;
-    //   }
-    // });
     const INFO = info.filter((element) => element.language.name === "en");
 
-    return INFO;
+    return INFO.length ? INFO : "No data found sorry";
   } catch (error) {
     console.error("something went wrong : ", error.message || error);
   }
 }
-
+// ! for types
+export async function fetchType(key) {
+  const url = `https://pokeapi.co/api/v2/pokemon/${key}`;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+    const data = await response.json();
+    const a = data.types;
+    return {
+      types: a,
+      countofTypes: a.length,
+    };
+  } catch (error) {
+    console.warn(error.message || error);
+  }
+}
 // ? console.log(data.sprites.front_default); is the photo horrible tho
 
 /*
@@ -67,29 +73,6 @@ async function fetchInfoData() {
       (entry) => entry.language.name === "en"
     );
     console.log(entry.flavor_text);
-  } catch (error) {
-    console.warn(error.message || error);
-  }
-}
-
-*/
-
-/*
-?To get the type count and also the types
-async function fetchData() {
-  const url = " https://pokeapi.co/api/v2/pokemon/pikachu";
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`Response status: ${response.status}`);
-    }
-    const data = await response.json();
-    let count = 0;
-    const a = data.types;
-    a.forEach((element) => {
-      count++;
-    });
-    console.log(count);
   } catch (error) {
     console.warn(error.message || error);
   }

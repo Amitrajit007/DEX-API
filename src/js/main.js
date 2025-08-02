@@ -1,5 +1,5 @@
 // ! Imports
-import { fetchData, fetchInfoData } from "./fetch.js";
+import { fetchData, fetchInfoData, fetchType } from "./fetch.js";
 import { fetchList } from "../data/pokemonList.js";
 import { suggestionfunc } from "./suggestion.js";
 // ! DOMS
@@ -9,7 +9,7 @@ const image = document.querySelector(".js_image");
 const nameDisplay = document.querySelector(".js_name");
 const suggestion = document.querySelector(".js_suggest");
 const generalInfo = document.querySelector(".js_generalInfo");
-// const typeofPokemon = document.querySelector("");
+const typeofPokemon = document.querySelector(".Type");
 const abilityofPokemon = document.querySelector(".Abilities");
 const weightofPokemon = document.querySelector(".Weight");
 const submitBtn = document.querySelector(".js_submitBtn");
@@ -32,14 +32,20 @@ async function updateName(key) {
   const name1 = await fetchData(key);
   nameDisplay.innerText = name1.name;
 }
-//getting the info from the api
+//getting the info
 
 async function getGeneralInfo(name) {
   if (name.includes("deoxys")) {
     name = "deoxys";
   }
   const generalData = await fetchInfoData(name);
-
+  if (!generalData) {
+    generalInfo.innerText = "No data found sorry. ";
+    readmore.classList.add("remove");
+    return;
+  } else {
+    readmore.classList.remove("remove");
+  }
   generalInfo.innerText = generalData
     .map((e) => {
       const text = e.flavor_text.replace(/[\n\f]/g, " ");
@@ -73,6 +79,24 @@ async function getGeneralInfo(name) {
   };
 }
 
+// Types
+
+async function getType(name) {
+  const fortype = await fetchType(name);
+  const rawtypeData = fortype.types;
+  const type1 = rawtypeData.map((e) => e.type.name);
+
+  let HTML = `<p class="font-bold">Type: </p>`;
+
+  type1.forEach((element, index) => {
+    if (index != 0) {
+      HTML += `<p>&<p>`;
+    }
+    HTML += `<p>${element}</p>`;
+  });
+  typeofPokemon.innerHTML = HTML;
+}
+
 // special ability
 
 async function getSpecialAbilty(name) {
@@ -101,6 +125,7 @@ input.addEventListener("keydown", (e) => {
     getGeneralInfo(key);
     getSpecialAbilty(key);
     getWeight(key);
+    getType(key);
   }
 });
 submitBtn.addEventListener("click", () => {
@@ -110,4 +135,5 @@ submitBtn.addEventListener("click", () => {
   getGeneralInfo(key);
   getSpecialAbilty(key);
   getWeight(key);
+  getType(key);
 });
