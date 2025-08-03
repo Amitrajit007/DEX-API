@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="overflow-x-hidden">
   <head>
     <title>pokédex</title>
     <meta charset="UTF-8" />
@@ -12,10 +12,12 @@
     <link href="/src/css/style.css" rel="stylesheet" />
   </head>
   <body
-    class="flex flex-col w-screen min-h-screen bg-gradient-to-b from-blue-400 via-indigo-500 to-purple-600"
+    class="overflow-x-hidden flex flex-col min-h-screen bg-gradient-to-b from-blue-400 via-indigo-500 to-purple-600"
   >
     <!-- nav bar here -->
-    <nav class="bg-blue-400 text-shadow-black px-6 py-4 flex gap-10">
+    <nav
+      class="bg-blue-400 text-shadow-black px-4 sm:px-6 py-4 flex flex-wrap items-center justify-between"
+    >
       <div class="text-xl font-bold">Pokédex</div>
       <div class="flex flex-1 justify-end">
         <ul class="flex space-x-6">
@@ -39,25 +41,25 @@
       </div>
     </nav>
     <!-- center display here -->
-    <div class="w-screen h-80 flex flex-col gap-2 justify-center items-center">
+    <div class="w-full h-80 flex flex-col gap-2 justify-center items-center">
       <h2 class="text-6xl font-bold">Pokédex</h2>
-      <h5 class="tracking-widest text-monospase">
+      <h5 class="tracking-widest text-mono">
         Explore Pokémon by their names....
       </h5>
     </div>
     <!-- the main portion -->
     <main class="flex flex-grow flex-wrap gap-3 mt-5 justify-center mb-10">
       <!-- input and submit -->
-      <div class="w-screen flex flex-wrap justify-evenly items-center">
+      <div class="w-full flex flex-wrap justify-evenly items-center">
         <div
           class="js_inputContainer flex flex-col flex-grow max-w-[800px] w-full px-4 content-center"
         >
           <input
             type="text"
             placeholder="Enter a pokemon name Ez : Charizard"
-            class="js_inputArea ml-5 border-4 w-full rounded-2xl border-blue-900 text-2xl px-4 py-3 leading-[1.5]"
+            class="js_inputArea border-4 w-full rounded-2xl border-blue-900 text-2xl px-4 py-3 leading-[1.5]"
           />
-          <div class="js_suggest ml-5"></div>
+          <div class="js_suggest"></div>
         </div>
 
         <button
@@ -86,7 +88,7 @@
       <!-- display area -->
 
       <div
-        class="mainDisplayArea w-screen flex flex-col sm:flex-row justify-evenly items-center gap-8 text-black bg-amber-50/30 mx-5 rounded-4xl p-5"
+        class="mainDisplayArea w-full flex flex-col sm:flex-row justify-evenly items-center gap-8 text-black bg-amber-50/30 mx-5 rounded-4xl p-5"
       >
         <div class="forImage">
           <figure class="flex flex-col items-center gap-2">
