@@ -159,6 +159,12 @@ submitBtn.addEventListener("click", () => {
   getSpecialAbilty(key);
   getWeight(key);
   getType(key);
+  if (!readmore.innerText === "Show less..") {
+    return;
+  } else {
+    readmore.classList.remove("translucent-btn");
+    readmore.innerText = "•••••";
+  }
 });
 
 input.addEventListener("keydown", () => {
