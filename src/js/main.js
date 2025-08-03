@@ -52,7 +52,7 @@ async function getGeneralInfo(name) {
       return `${text}`;
     })
     .join(" ");
-  console.log(generalData);
+  // console.log(generalData);
   generalInfo.innerText = generalData
     .slice(0, 3)
     .map((e) => e.flavor_text.replace(/[\n\f]/g, " "))
@@ -92,7 +92,7 @@ async function getType(name) {
     fire: "#f87171", // red-400
     water: "#60a5fa", // blue-400
     grass: "#22c55e", // green-500
-    electric: "#facc15", // yellow-400
+    electric: "#cfa708", // yellow-500
     ice: "#67e8f9", // cyan-300
     fighting: "#b91c1c", // red-700
     poison: "#a855f7", // purple-500

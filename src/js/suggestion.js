@@ -9,7 +9,6 @@ export function suggestionfunc(input, suggestion, pokemonList, submitBtn) {
       return data1;
     });
     if (filterRawData.length === 0) {
-      //*   console.log("he");
       filterRawData = pokemonList.filter((pokemon) => {
         data1 = pokemon.toLowerCase().includes(value);
         return data1;
